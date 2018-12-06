@@ -1,1 +1,6 @@
-body,html{height:100%;margin:0;padding:0;background:red}
+@charset "UTF-8";
+/* 定义map集合 */
+.box {
+  width: 100px;
+  opacity: 0.8;
+  filter: alpha(opacity=80); }

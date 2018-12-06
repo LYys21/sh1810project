@@ -6,16 +6,23 @@
 	</head>
 	<link rel="stylesheet" type="text/css" href="../styles/index.css"/>
 	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/fonts/iconfont.css"/>
 	<body>
-		hello   ssssssssssssssssssss    nihaoaaaaaaaaaaaaaa
+		hello  自动刷新
+		
+		<p>
+			<span class="iconfont icon-kaixin"></span>
+		</p>
 	</body>
 	<script type="text/javascript">
 		
 		$.ajax({
-			url : "https://localhost:10002/listmore?pageNo=2&pageSize=15",
+			url : "/userinfo",
 			success : function(data){
 				console.log(data);
 			}
 		})
 	</script>
+	
+	
 </html>
