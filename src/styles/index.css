@@ -1,0 +1,26 @@
+@import "functions";
+@import "mixins";
+
+/*定义变量*/
+
+
+
+
+/* 变量拼接 */
+
+
+/* 定义数组 */
+
+
+/* 定义map集合 */
+$map: (small:10px, middle:30px, large:60px);
+
+
+
+//继承
+
+
+
+//嵌套
+
+

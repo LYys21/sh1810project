@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../styles/index.css"/>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+	<body>
+		hello   ssssssssssssssssssss    nihaoaaaaaaaaaaaaaa
+	</body>
+	<script type="text/javascript">
+		
+		$.ajax({
+			url : "https://localhost:10002/listmore?pageNo=2&pageSize=15",
+			success : function(data){
+				console.log(data);
+			}
+		})
+	</script>
+</html>
