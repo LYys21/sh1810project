@@ -69,31 +69,36 @@ gulp.task("build", ["buildJS","buildHTML", "buildCSS", "buildStaticResource"])
 
 const webpack = require("webpack-stream");
 
+//webpack
 gulp.task("webpackJS", ()=>{
 	webpack({
-		mode: "development",
-		entry: ["./src/webpack/app.js"],
+		mode: "development",  //模式
+		entry: ["./src/webpack/app.js"],  //配置入口文件，及打包时，webpack从哪个文件开始读取
 		output: {
-		  filename: 'app.js',
+		  	filename: 'app.js', //打包生产后的文件名称
 		},
 		module : {
 			rules:  [
 				{
-					test: /\.js$/,
-					exclude: /(node_modules|bower_components)/,  
-				  	use: {
-						loader: 'babel-loader',
+					test: /\.js$/,   //匹配.js文件
+					exclude: /(node_modules|bower_components)/,   //将node_modules里的JS排除
+				  	use: {  //配置babel-loader用来编译ES6、7语法
+						loader: 'babel-loader',  
 						options: {
 							presets: ['@babel/preset-env']
 						}
 				  	}
 				},
 				{
-					test: /\.scss$/,
-				  	use: ["style-loader","css-loader","sass-loader"]
+					test: /\.scss$/, //匹配.scss文件
+				  	use: [	
+						"style-loader", //用于将css文本写在页面的style标签中
+						"css-loader", //用于加载css文件
+						"sass-loader" //用于加载scss并编译生成css文件
+					] 
 				}
 			]
 		}
 	})
-	.pipe( gulp.dest("./src/webpack/dist") )
+	.pipe( gulp.dest("./src/webpack/dist") ) //将打包后的app.js复制到哪里
 })
