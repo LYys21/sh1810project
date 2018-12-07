@@ -44,11 +44,9 @@ gulp.task("watching", ()=>{
 	gulp.watch("./src/**/*.html", ["buildHTML"]);
 });
 
-
-
-//yintao01分支下的修改
-gulp.task('webserver', ["watching"], function() {
-	gulp.src('dist')
+//写个注释，完了
+gulp.task('webserver', function() {
+	gulp.src('src')
 		.pipe(webserver({
 			livereload: true, //是否支持热部署
 			https: true,      //
