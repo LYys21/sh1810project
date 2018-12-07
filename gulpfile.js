@@ -67,3 +67,35 @@ gulp.task('webserver', ["watching"], function() {
 });
 
 gulp.task("build", ["buildJS","buildHTML", "buildCSS", "buildStaticResource"])
+
+
+const webpack = require("webpack-stream");
+
+gulp.task("webpackJS", ()=>{
+	webpack({
+		mode: "development",
+		entry: ["./src/webpack/app.js"],
+		output: {
+		  filename: 'app.js',
+		},
+		module : {
+			rules:  [
+				{
+					test: /\.js$/,
+					exclude: /(node_modules|bower_components)/,  
+				  	use: {
+						loader: 'babel-loader',
+						options: {
+							presets: ['@babel/preset-env']
+						}
+				  	}
+				},
+				{
+					test: /\.scss$/,
+				  	use: ["style-loader","css-loader","sass-loader"]
+				}
+			]
+		}
+	})
+	.pipe( gulp.dest("./src/webpack/dist") )
+})
